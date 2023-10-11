@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('folios', function (Blueprint $table) {
             $table->id();
-            $table->uuid('id');
+            $table->uuid('uuid');
             $table->integer('folio');
             $table->date('date');
             $table->string('detainee_full_name');

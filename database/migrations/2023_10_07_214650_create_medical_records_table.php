@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('medical_records', function (Blueprint $table) {
             $table->id();
-            $table->uuid('id');
+            $table->uuid('uuid');
             $table->uuid('folio_uuid');
             $table->string('detainee_first_name');
             $table->string('detainee_lastname1');
