@@ -14,8 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('biometric_records', function (Blueprint $table) {
-            $table->id();
-            $table->uuid('uuid');
+            $table->uuid('id')->primary();
             $table->uuid('folio_uuid');
             $table->string('face_recognition_encoding');
             $table->string('detainee_frontal_pic_path');

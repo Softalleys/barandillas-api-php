@@ -14,8 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('judge_rulings', function (Blueprint $table) {
-            $table->id();
-            $table->uuid('uuid');
+            $table->uuid('id')->primary();
             $table->uuid('folio_uuid');
             $table->dateTime('detention_datetime');
             $table->string('detainee_gang');

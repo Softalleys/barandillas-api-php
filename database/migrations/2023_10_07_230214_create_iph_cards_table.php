@@ -14,8 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('iph_cards', function (Blueprint $table) {
-            $table->id();
-            $table->uuid('uuid');
+            $table->uuid('id')->primary();
             $table->uuid('folio_uuid');
             $table->date('date');
             $table->time('time');

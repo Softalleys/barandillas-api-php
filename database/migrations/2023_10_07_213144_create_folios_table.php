@@ -14,8 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('folios', function (Blueprint $table) {
-            $table->id();
-            $table->uuid('uuid');
+            $table->uuid('id')->primary();
             $table->integer('folio');
             $table->date('date');
             $table->string('detainee_full_name');
