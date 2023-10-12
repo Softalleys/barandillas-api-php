@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Folio;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class FolioController extends Controller
 {
@@ -23,36 +25,36 @@ class FolioController extends Controller
 
     public function store(Request $request)
     {
-        $validatedData = Validator::make($request->all(), [
+        $validator = Validator::make($request->all(), [
             'date' => 'required|date|max:225',
             'detainee_full_name' => 'required|string|max:225',
             'receptor_staff_name' => 'required|string|max:225',
             'receptor_manager_name' => 'required|string|max:225',
             'release_staff_name' => 'required|string|max:225',
             'release_manager_name' => 'required|string|max:225',
-            'personal_belongings' => 'required|string|max:225',
+            'personal_belongings' => 'required|array|max:225',
             'observations' => 'required|string|max:225',
         ]);
 
-        if($validatedData->fails()){
+        if($validator->fails()){
             
             return response()->json([
                 'status' => 422,
-                'errors' => $validatedData->messages()
+                'errors' => $validator->messages()
             ], 422);
 
         }else{
 
             $folio = new Folio;
-            $folio->folio = Str::upper(Str::random(8));
-            $folio->date = $date;
-            $folio->detainee_full_name = $detainee_full_name;
-            $folio->receptor_staff_name = $receptor_staff_name;
-            $folio->receptor_manager_name = $receptor_manager_name;
-            $folio->release_staff_name = $release_staff_name;
-            $folio->release_manager_name = $release_manager_name;
-            $folio->personal_belongings = $personal_belongings;
-            $folio->observations = $observations;
+            // $folio->folio = Str::upper(Str::random(11));
+            $folio->date = $request->date;
+            $folio->detainee_full_name = $request->detainee_full_name;
+            $folio->receptor_staff_name = $request->receptor_staff_name;
+            $folio->receptor_manager_name = $request->receptor_manager_name;
+            $folio->release_staff_name = $request->release_staff_name;
+            $folio->release_manager_name = $request->release_manager_name;
+            $folio->personal_belongings = json_encode($request->personal_belongings);
+            $folio->observations = $request->observations;
 
             $folio->save();
 
@@ -92,21 +94,22 @@ class FolioController extends Controller
         // $personal_belongings = $request->input('personal_belongings');
         // $observations = $request->input('observations');
 
+        //FUNCIONA///////////////////////////////////////////////////////////////////
         // $folio = new Folio;
-        // $folio->folio = Str::upper(Str::random(8));
-        // $folio->date = $date;
-        // $folio->detainee_full_name = $detainee_full_name;
-        // $folio->receptor_staff_name = $receptor_staff_name;
-        // $folio->receptor_manager_name = $receptor_manager_name;
-        // $folio->release_staff_name = $release_staff_name;
-        // $folio->release_manager_name = $release_manager_name;
-        // $folio->personal_belongings = $personal_belongings;
-        // $folio->observations = $observations;
+        // $folio->date = $request->date;
+        // $folio->detainee_full_name = $request->detainee_full_name;
+        // $folio->receptor_staff_name = $request->receptor_staff_name;
+        // $folio->receptor_manager_name = $request->receptor_manager_name;
+        // $folio->release_staff_name = $request->release_staff_name;
+        // $folio->release_manager_name = $request->release_manager_name;
+        // $folio->personal_belongings = json_encode($request->personal_belongings);
+        // $folio->observations = $request->observations;
 
-        // $folio->save();
+        // $result=$folio->save();
 
         // return response()->json(['message' => 'Form submitted successfully']);
         // }
+        //FUNCIONA///////////////////////////////////////////////////////////////////
 
         // // $validatedData = $request->validate([
         // //     'date' => 'required|date',

@@ -18,5 +18,7 @@ use App\Http\Controllers\FolioController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
 Route::post('/folios', [FolioController::class, 'store']);
+// Route::post('/folios', [FolioController::class, 'store']);
 Route::get('/folios', [FolioController::class, 'index']);
