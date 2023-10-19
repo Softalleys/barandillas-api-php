@@ -46,7 +46,7 @@ class FolioController extends Controller
         }else{
 
             $folio = new Folio;
-            // $folio->folio = Str::upper(Str::random(11));
+            $folio->folio = Str::random(8);
             $folio->date = $request->date;
             $folio->detainee_full_name = $request->detainee_full_name;
             $folio->receptor_staff_name = $request->receptor_staff_name;
@@ -84,48 +84,4 @@ class FolioController extends Controller
             }
             }
         }
-        
-        // $date = $request->input('date');
-        // $detainee_full_name = $request->input('detainee_full_name');
-        // $receptor_staff_name = $request->input('receptor_staff_name');
-        // $receptor_manager_name = $request->input('receptor_manager_name');
-        // $release_staff_name = $request->input('release_staff_name');
-        // $release_manager_name = $request->input('release_manager_name');
-        // $personal_belongings = $request->input('personal_belongings');
-        // $observations = $request->input('observations');
-
-        //FUNCIONA///////////////////////////////////////////////////////////////////
-        // $folio = new Folio;
-        // $folio->date = $request->date;
-        // $folio->detainee_full_name = $request->detainee_full_name;
-        // $folio->receptor_staff_name = $request->receptor_staff_name;
-        // $folio->receptor_manager_name = $request->receptor_manager_name;
-        // $folio->release_staff_name = $request->release_staff_name;
-        // $folio->release_manager_name = $request->release_manager_name;
-        // $folio->personal_belongings = json_encode($request->personal_belongings);
-        // $folio->observations = $request->observations;
-
-        // $result=$folio->save();
-
-        // return response()->json(['message' => 'Form submitted successfully']);
-        // }
-        //FUNCIONA///////////////////////////////////////////////////////////////////
-
-        // // $validatedData = $request->validate([
-        // //     'date' => 'required|date',
-        // //     'detainee_full_name' => 'required|string',
-        // //     'receptor_staff_name' => 'required|string',
-        // //     'receptor_manager_name' => 'required|string',
-        // //     'release_staff_name' => 'required|string',
-        // //     'release_manager_name' => 'required|string',
-        // //     'personal_belongings' => 'required|string',
-        // //     'observations' => 'required|string',
-        // // ]);
-
-        // // $folio = Folio::store($validatedData);
-
-        // // return response()->json([
-        // //     'folio' => $folio,
-        // //     'message' => 'Folio created successfully',
-        // // ]);
 }

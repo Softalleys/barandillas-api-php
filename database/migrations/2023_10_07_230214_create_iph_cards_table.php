@@ -21,11 +21,11 @@ return new class extends Migration
             $table->time('detention_time');
             $table->string('detention_zone');
             $table->Integer('capturist_info_number');
-            $table->Integer('capturist_info_fullname');
+            $table->string('capturist_info_fullname');
             $table->string('fault');
             $table->string('detainee_firstname');
             $table->string('detainee_lastname1');
-            $table->string('detainee_firstname2');
+            $table->string('detainee_lastname2');
             $table->string('detainee_nickname');
             $table->date('detainee_birthdate');
             $table->tinyInteger('detainee_age');
@@ -45,7 +45,8 @@ return new class extends Migration
             $table->string('police_group');
             $table->string('ref_authority');
             $table->string('iph_fault');
-            $table->string('detainee_height'); //data type ?????
+            $table->string('iph_felony');
+            $table->string('detainee_height');
             $table->string('detainee_hair_color');
             $table->string('detainee_hair_length');
             $table->string('detainee_beard');

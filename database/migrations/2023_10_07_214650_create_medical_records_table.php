@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('medical_records', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('detainee_first_name');
+            $table->uuid('folio_uuid');
+            $table->string('detainee_firstname');
             $table->string('detainee_lastname1');
             $table->string('detainee_lastname2');
             $table->tinyInteger('detainee_age');
@@ -25,12 +26,13 @@ return new class extends Migration
             $table->string('medical_exam');
             $table->string('injuries_description');
             $table->string('medical_observations');
-            $table->boolean('marijuana_intoxication');
+            $table->string('has_marijuana_intoxication');
             $table->string('detainee_gang');
             $table->string('physical_exploration');
-            $table->double('alcohosensor', 2, 2);
+            $table->double('alcohosensor', 4, 2);
             $table->string('diagnosis_description');
-            $table->smallInteger('drugs_quantity');
+            $table->string('drugs_type');
+            $table->double('drugs_quantity',4,2);
             $table->Integer('doctor_number');
             $table->Integer('doctor_plate');
             $table->string('doctor_fullname');
