@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('folios', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('folio')->nullable();
+            $table->string('folio');
             $table->date('date');
             $table->string('detainee_full_name');
             $table->string('receptor_staff_name');

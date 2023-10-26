@@ -16,13 +16,6 @@ return new class extends Migration
         Schema::create('judge_rulings', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->uuid('folio_uuid');
-            $table->dateTime('detention_datetime');
-            $table->string('detainee_gang');
-            $table->string('detainee_firstname');
-            $table->string('detainee_lastname1');
-            $table->string('detainee_lastname2');
-            $table->string('fault');
-            $table->string('observations');
             $table->string('fault_cited');
             $table->string('fault_commited');
             $table->string('art_broken_number');

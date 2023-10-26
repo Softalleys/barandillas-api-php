@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('detainees', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->integer('folio');
+            $table->uuid('folio_uuid');
             $table->string('ref_authority_name');
             $table->string('admission_date');
             $table->string('detention_time');
@@ -31,8 +31,8 @@ return new class extends Migration
             $table->string('detainee_occupation');
             $table->string('detainee_sex');
             $table->Integer('detainee_age');
-            $table->string('detainee_martial_state');
-            $table->string('detainee_scholarchip');
+            $table->string('detainee_marital_state');
+            $table->string('detainee_scholarship');
             $table->string('detainee_country');
             $table->string('detainee_nationality');
             $table->string('detainee_address');
@@ -48,7 +48,6 @@ return new class extends Migration
             $table->timestamps();
         });
     }
-//PENDIENTE------------------------------------------------
     /**
      * Reverse the migrations.
      *

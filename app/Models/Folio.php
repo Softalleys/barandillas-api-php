@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Traits\Uuid;
 use App\Models\MedicalRecord;
 use App\Models\IphCard;
+use App\Models\JudgeRuling;
 
 class Folio extends Model
 {
@@ -33,4 +34,15 @@ class Folio extends Model
     {
         return $this->hasOne(IphCard::class, 'folio_uuid');
     }
+
+    public function judgeRuling()
+    {
+        return $this->hasOne(JudgeRuling::class, 'folio_uuid');
+    }
+
+    public function detainee()
+    {
+        return $this->hasOne(Detainee::class, 'folio_uuid');
+    }
+
 }

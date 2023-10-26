@@ -93,5 +93,4 @@ class MedicalRecordController extends Controller
             }
         }
     }
-    
 }

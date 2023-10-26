@@ -58,16 +58,6 @@ class FolioController extends Controller
 
             $folio->save();
 
-            // $folio = Folio::create([
-            //     'detainee_full_name' => $request->detainee_full_name,
-            //     'receptor_staff_name' => $request->receptor_staff_name,
-            //     'receptor_manager_name' => $request->receptor_manager_name,
-            //     'release_staff_name' => $request->release_staff_name,
-            //     'release_manager_name' => $request->release_manager_name,
-            //     'personal_belongings' => $request->personal_belongings,
-            //     'observations' => $request->observations,
-            // ]);
-
             if($folio){
 
                 return response()->json([
@@ -82,6 +72,6 @@ class FolioController extends Controller
                     'message' => 'Something went wrong'
                 ], 500);
             }
-            }
         }
+    }
 }
