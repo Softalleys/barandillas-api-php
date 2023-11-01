@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Folio;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class FolioController extends Controller
@@ -21,6 +22,15 @@ class FolioController extends Controller
         return response()->json([
             'folios' => $folios,
         ]);
+    }
+
+    public function searchFolio(Request $request)
+    {
+        $folio = $request->input('folio');
+
+        $detainee = DB::table('folios')->where('folio', $folio)->get();
+
+        return $detainee;
     }
 
     public function store(Request $request)
