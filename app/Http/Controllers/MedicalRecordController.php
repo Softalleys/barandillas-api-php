@@ -70,7 +70,7 @@ class MedicalRecordController extends Controller
             $medicalRecord->alcohosensor = $request->alcohosensor;
             $medicalRecord->diagnosis_description = json_encode($request->diagnosis_description);
             $medicalRecord->drugs_type = json_encode($request->drugs_type);
-            $medicalRecord->drugs_quantity = json_encode($request->drugs_quantity);
+            $medicalRecord->drugs_quantity = $request->drugs_quantity;
             $medicalRecord->doctor_number = $request->doctor_number;
             $medicalRecord->doctor_plate = $request->doctor_plate;
             $medicalRecord->doctor_fullname = $request->doctor_fullname;
