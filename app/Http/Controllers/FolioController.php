@@ -28,9 +28,16 @@ class FolioController extends Controller
     {
         $folio = $request->input('folio');
 
-        $detainee = DB::table('folios')->where('folio', $folio)->get();
+        $folios = DB::table('folios')->where('folio', $folio)->get();
 
-        return $detainee;
+        return $folios;
+    }
+
+    public function folioData(Request $request)
+    {
+        $folioId = $request->input('id');
+
+        $folioData = DB::table('folios')->where('id', $folioId)->get();
     }
 
     public function store(Request $request)
