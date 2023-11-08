@@ -18,6 +18,8 @@ class JudgeRulingController extends Controller
         ]);
     }
 
+    
+
     public function getFolioData()
     {
         $folio = Folio::with(['detainees', 'iph_cards'])->find($folio_uuid);

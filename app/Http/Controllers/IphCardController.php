@@ -44,7 +44,7 @@ class IphCardController extends Controller
             'police_plate' => 'required|string|max:255',
             'police_zone' => 'required|string|max:255',
             'police_company' => 'required|string|max:255',
-            'police_unit' => 'required|string|max:255',
+            'police_drive_unit' => 'required|string|max:255',
             'police_name' => 'required|string|max:255',
             'police_job' => 'required|string|max:255',
             'police_group' => 'required|string|max:255',
@@ -95,7 +95,7 @@ class IphCardController extends Controller
             $iphCard->police_plate = $request->police_plate;
             $iphCard->police_zone = $request->police_zone;
             $iphCard->police_company = $request->police_company;
-            $iphCard->police_unit = $request->police_unit;
+            $iphCard->police_drive_unit = $request->police_drive_unit;
             $iphCard->police_name = $request->police_name;
             $iphCard->police_job = $request->police_job;
             $iphCard->police_group = $request->police_group;

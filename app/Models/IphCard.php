@@ -37,7 +37,7 @@ class IphCard extends Model
         'police_plate',
         'police_zone',
         'police_company',
-        'police_unit',
+        'police_drive_number',
         'police_name',
         'police_job',
         'police_group',

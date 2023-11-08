@@ -24,21 +24,12 @@ class FolioController extends Controller
         ]);
     }
 
-    public function searchFolio(Request $request)
-    {
-        $folio = $request->input('folio');
+    // public function folioData(Request $request)
+    // {
+    //     $folioId = $request->input('id');
 
-        $folios = DB::table('folios')->where('folio', $folio)->get();
-
-        return $folios;
-    }
-
-    public function folioData(Request $request)
-    {
-        $folioId = $request->input('id');
-
-        $folioData = DB::table('folios')->where('id', $folioId)->get();
-    }
+    //     $folioData = DB::table('folios')->where('id', $folioId)->get();
+    // }
 
     public function store(Request $request)
     {
