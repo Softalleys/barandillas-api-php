@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('fault_commited');
             $table->string('art_broken_number');
             $table->string('sanction');
-            $table->time('time_in_arrest');
-            $table->boolean('free_by');
+            $table->string('time_in_arrest');
+            $table->string('free_by');
             $table->string('release_observation');
             $table->string('judge_receptor_number');
             $table->string('judge_receptor_fullname');
@@ -29,10 +29,6 @@ return new class extends Migration
             $table->string('judge_releasing_fullname');
             $table->dateTime('releasing_datetime');
             $table->boolean('has_freedom_auth');
-            $table->Integer('commissioner_receptor_number');
-            $table->string('commissioner_receptor_fullname');
-            $table->Integer('commissioner_release_number');
-            $table->string('commissioner_release_fullname');
             $table->timestamps();
         });
     }

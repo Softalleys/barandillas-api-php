@@ -24,7 +24,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/folios', [FolioController::class, 'store']);
+Route::post('/folios/create', [FolioController::class, 'store']);
 Route::get('/folios', [FolioController::class, 'index']);
 // Route::get('/folios/{id}/folios', [FolioController::class, 'folioData']);
 Route::post('/medical_records', [MedicalRecordController::class, 'store']);

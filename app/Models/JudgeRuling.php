@@ -26,11 +26,7 @@ class JudgeRuling extends Model
         'judge_releasing_number',
         'judge_releasing_fullname',
         'releasing_datetime',
-        'has_freedom_auth',
-        'commissioner_receptor_number',
-        'commissioner_receptor_fullname',
-        'commissioner_release_number',
-        'commissioner_release_fullname'
+        'has_freedom_auth'
     ];
 
     public function folio()

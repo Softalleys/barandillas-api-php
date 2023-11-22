@@ -18,7 +18,7 @@ class JudgeRulingController extends Controller
         ]);
     }
 
-    
+
 
     public function getFolioData()
     {
@@ -46,10 +46,6 @@ class JudgeRulingController extends Controller
             'judge_releasing_fullname' => 'required|string|max:225',
             'releasing_datetime' => 'required|string|max:225',
             'has_freedom_auth' => 'required|string|max:225',
-            'commissioner_receptor_number' => 'required|string|max:225',
-            'commissioner_receptor_fullname' => 'required|string|max:225',
-            'commissioner_release_number' => 'required|string|max:225',
-            'commissioner_release_fullname' => 'required|string|max:225',
         ]);
 
         if($validator->fails()){
@@ -76,10 +72,6 @@ class JudgeRulingController extends Controller
             $judgeRuling->judge_releasing_fullname = $request->judge_releasing_fullname;
             $judgeRuling->releasing_datetime = $request->releasing_datetime;
             $judgeRuling->has_freedom_auth = $request->has_freedom_auth;
-            $judgeRuling->commissioner_receptor_number = $request->commissioner_receptor_number;
-            $judgeRuling->commissioner_receptor_fullname = $request->commissioner_receptor_fullname;
-            $judgeRuling->commissioner_release_number = $request->commissioner_release_number;
-            $judgeRuling->commissioner_release_fullname = $request->commissioner_release_fullname;
 
             $judgeRuling->save();
 
