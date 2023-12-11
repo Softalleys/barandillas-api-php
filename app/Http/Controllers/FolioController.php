@@ -23,6 +23,21 @@ class FolioController extends Controller
             'folios' => $folios,
         ]);
     }
+    
+    public function getFolioData($id)
+    {
+        $folio = Folio::find($id);
+        if ($folio) {
+            return response()->json([
+                'folio' => $folio,
+            ]);
+        } else {
+            return response()->json([
+                'status' => 404,
+                'message' => 'Folio not found',
+            ], 404);
+        }
+    }
 
     // public function folioData(Request $request)
     // {
