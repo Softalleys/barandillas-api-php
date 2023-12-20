@@ -41,5 +41,7 @@ Route::get('/detainees', [DetaineeController::class, 'index']);
 Route::post('/search_folio', [SearchController::class, 'searchFolio']);
 Route::get('/search_folio', [SearchController::class, 'searchFolio']);
 Route::get('/search_folios', [SearchController::class, 'searchFolios']);
+Route::post('/search_name', [SearchController::class, 'searchName']);
+Route::get('/search_name', [SearchController::class, 'searchName']);
 Route::get('/search_detainees', [SearchController::class, 'searchDetainees']);
 Route::get('/search_iphs',[SearchController::class, 'searchIphs']);

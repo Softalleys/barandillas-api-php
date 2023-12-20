@@ -51,15 +51,21 @@ class SearchController extends Controller
     public function searchFolio(Request $request)
     {
         $folio = $request->input('folio');
-        $folios = Folio::where('folio', $folio)->get();
-
+        $folios = Folio::where('folio', $folio)->first();
         return $folios;
     }
 
     public function searchFolios(Request $request)
     {
         $folio = $request->input('folio');
-        $folios = Folio::where('folio', $folio)->first();
+        $folios = Folio::where('folio', $folio)->get();
+        return $folios;
+    }
+
+    public function searchName(Request $request)
+    {
+        $folio = $request->input('detainee_full_name');
+        $folios = Folio::where('detainee_full_name', 'LIKE', "%$folio%")->first();
         return $folios;
     }
 }
