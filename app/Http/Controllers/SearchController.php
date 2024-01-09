@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Detainee;
-use App\Models\Folio;
+use App\Models\SeizedItem;
 use App\Models\IphCard;
 
 class SearchController extends Controller
@@ -12,7 +12,7 @@ class SearchController extends Controller
     public function searchDetainees(Request $request)
     {
         $folio = $request->input('folio');
-        $folio = Folio::where('folio', $folio)->first();
+        $folio = SeizedItem::where('folio', $folio)->first();
     
         if ($folio) {
             $folioUuid = $folio->id;
@@ -31,7 +31,7 @@ class SearchController extends Controller
     public function searchIphs(Request $request)
     {
         $folio = $request->input('folio');
-        $folio = Folio::where('folio', $folio)->first();
+        $folio = SeizedItem::where('folio', $folio)->first();
 
         if ($folio) {
             $folioUuid = $folio->id;
@@ -51,20 +51,20 @@ class SearchController extends Controller
     public function searchFolio(Request $request)
     {
         $folio = $request->input('folio');
-        $folios = Folio::where('folio', $folio)->first();
+        $folios = SeizedItem::where('folio', $folio)->first();
         return $folios;
     }
 
     public function searchFolios(Request $request)
     {
         $folio = $request->input('folio');
-        $folios = Folio::where('folio', $folio)->get();
+        $folios = SeizedItem::where('folio', $folio)->get();
         return $folios;
     }
 
     public function searchName($name)
     {
-        $names = Folio::where('detainee_full_name', 'LIKE', "%$name%")->get();
+        $names = SeizedItem::where('detainee_full_name', 'LIKE', "%$name%")->get();
         return $names;
     }
 }

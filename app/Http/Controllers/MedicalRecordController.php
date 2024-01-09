@@ -5,17 +5,32 @@ namespace App\Http\Controllers;
 use App\Models\MedicalRecord;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use App\Http\Controller\FolioController;
+use App\Http\Controller\SeizedItemController;
 
 class MedicalRecordController extends Controller
 {
     public function index()
     {
-        $medicalRecord = MedicalRecord::all();
+        $medicalRecords = MedicalRecord::all();
 
         return response()->json([
-            'folio_uuid' => $medicalRecord,
+            'Medical records' => $medicalRecords,
         ]);
+    }
+
+    public function getMedicalRecordData($folio_uuid)
+    {
+        $medicalRecord = MedicalRecord::where('folio_uuid', $folio_uuid)->first();
+        if ($medicalRecord) {
+            return response()->json([
+                'medical_record' => $medicalRecord,
+            ]);
+        } else {
+            return response()->json([
+                'status' => 404,
+                'message' => 'Medical record not found',
+            ], 404);
+        }
     }
 
     public function store(Request $request)
@@ -81,7 +96,7 @@ class MedicalRecordController extends Controller
 
                 return response()->json([
                     'status' => 200,
-                    'message' => 'Folio created successfully'
+                    'message' => 'Medical record created successfully'
                 ], 200);
 
             }else{

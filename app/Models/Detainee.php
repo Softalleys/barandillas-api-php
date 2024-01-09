@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Traits\Uuid;
-use App\Http\Controllers\FolioController;
+use App\Http\Controllers\SeizedItemController;
 
 class Detainee extends Model
 {
@@ -48,7 +48,7 @@ class Detainee extends Model
 
     public function folio()
     {
-        return $this->belongsTo(Folio::class, 'folio_uuid');
+        return $this->belongsTo(SeizedItem::class, 'folio_uuid');
     }
     
 }

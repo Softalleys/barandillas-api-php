@@ -39,7 +39,7 @@ return new class extends Migration
             $table->Integer('police_plate');
             $table->string('police_zone');
             $table->string('police_company');
-            $table->string('police_drive_number');
+            $table->string('police_unit_number');
             $table->string('police_name');
             $table->string('police_job');
             $table->string('police_group');

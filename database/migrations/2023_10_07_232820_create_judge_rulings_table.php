@@ -28,7 +28,7 @@ return new class extends Migration
             $table->string('judge_releasing_number');
             $table->string('judge_releasing_fullname');
             $table->dateTime('releasing_datetime');
-            $table->boolean('has_freedom_auth');
+            $table->string('has_freedom_auth');
             $table->timestamps();
         });
     }

@@ -9,7 +9,7 @@ use App\Models\MedicalRecord;
 use App\Models\IphCard;
 use App\Models\JudgeRuling;
 
-class Folio extends Model
+class SeizedItem extends Model
 {
     use HasFactory;
     use Uuid;
@@ -19,10 +19,12 @@ class Folio extends Model
         'detainee_full_name',
         'receptor_staff_name',
         'receptor_manager_name',
-        'release_staff_name',
-        'release_manager_name',
         'personal_belongings',
         'observations'
+    ];
+
+    protected $casts = [
+        'personal_belongings' => 'array'
     ];
    
     public function medicalRecord()

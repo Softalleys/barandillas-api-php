@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\FolioController;
+use App\Http\Controllers\SeizedItemController;
 use App\Http\Controllers\MedicalRecordController;
 use App\Http\Controllers\IphCardController;
 use App\Http\Controllers\JudgeRulingController;
@@ -24,18 +24,16 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/folios/create', [FolioController::class, 'store']);
-Route::get('/folios', [FolioController::class, 'index']);
-Route::get('/folios/{id}', [FolioController::class, 'getFolioData']);
+Route::post('/folios/create', [SeizedItemController::class, 'store']);
+Route::get('/folios', [SeizedItemController::class, 'index']);
+Route::get('/folios/{id}', [SeizedItemController::class, 'getFolioData']);
 Route::post('/medical_records/create', [MedicalRecordController::class, 'store']);
 Route::get('/medical_records', [MedicalRecordController::class, 'index']);
-Route::get('/medical_records/{id}medical_records', [MedicalRecordController::class, 'index']);
+Route::get('/medical_records/{folio_uuid}', [MedicalRecordController::class, 'getMedicalRecordData']);
 Route::post('/iph_cards/create', [IphCardController::class, 'store']);
 Route::get('/iph_cards', [IphCardController::class, 'index']);
-Route::get('/iph_cards/{id}/iph_cards', [IphCardController::class, 'index']);
 Route::post('/judge_rulings/create', [JudgeRulingController::class, 'store']);
 Route::get('/judge_rulings', [JudgeRulingController::class, 'index']);
-Route::get('/judge_rulings/{id}/judge_rulings', [JudgeRulingController::class, 'index']);
 Route::post('/detainees/create', [DetaineeController::class, 'store']);
 Route::get('/detainees', [DetaineeController::class, 'index']);
 Route::post('/search_folio', [SearchController::class, 'searchFolio']);

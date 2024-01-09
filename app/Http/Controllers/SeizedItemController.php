@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Folio;
+use App\Models\SeizedItem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
-class FolioController extends Controller
+class SeizedItemController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +17,7 @@ class FolioController extends Controller
      */
     public function index()
     {
-        $folios = Folio::all();
+        $folios = SeizedItem::all();
 
         return response()->json([
             'folios' => $folios,
@@ -26,7 +26,7 @@ class FolioController extends Controller
     
     public function getFolioData($id)
     {
-        $folio = Folio::find($id);
+        $folio = SeizedItem::find($id);
         if ($folio) {
             return response()->json([
                 'folio' => $folio,
@@ -39,13 +39,6 @@ class FolioController extends Controller
         }
     }
 
-    // public function folioData(Request $request)
-    // {
-    //     $folioId = $request->input('id');
-
-    //     $folioData = DB::table('folios')->where('id', $folioId)->get();
-    // }
-
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -53,8 +46,6 @@ class FolioController extends Controller
             'detainee_full_name' => 'required|string|max:225',
             'receptor_staff_name' => 'required|string|max:225',
             'receptor_manager_name' => 'required|string|max:225',
-            'release_staff_name' => 'required|string|max:225',
-            'release_manager_name' => 'required|string|max:225',
             'personal_belongings' => 'required|array|max:225',
             'observations' => 'required|string|max:225',
         ]);
@@ -68,18 +59,25 @@ class FolioController extends Controller
 
         }else{
 
-            $folio = new Folio;
-            $folio->folio = Str::random(8);
+            $lastFolio = SeizedItem::orderBy('created_at', 'desc')->first();
+            $lastFolioNumber = $lastFolio ? $lastFolio->folio : 0;
+
+            $newFolioNumber = str_pad(intval($lastFolioNumber) + 1 ,6, '0', STR_PAD_LEFT);
+
+            $folio = new SeizedItem;
+            $folio->folio = $newFolioNumber;
             $folio->date = $request->date;
             $folio->detainee_full_name = $request->detainee_full_name;
             $folio->receptor_staff_name = $request->receptor_staff_name;
             $folio->receptor_manager_name = $request->receptor_manager_name;
-            $folio->release_staff_name = $request->release_staff_name;
-            $folio->release_manager_name = $request->release_manager_name;
             $folio->personal_belongings = json_encode($request->personal_belongings);
             $folio->observations = $request->observations;
 
             $folio->save();
+
+            return $folio;
+
+            // return response()->json([$folio->id]);
 
             if($folio){
 

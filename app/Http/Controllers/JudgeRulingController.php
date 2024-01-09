@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\JudgeRuling;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use App\Http\Controller\FolioController;
+use App\Http\Controller\SeizedItemController;
 
 class JudgeRulingController extends Controller
 {
@@ -22,7 +22,7 @@ class JudgeRulingController extends Controller
 
     public function getFolioData()
     {
-        $folio = Folio::with(['detainees', 'iph_cards'])->find($folio_uuid);
+        $folio = SeizedItem::with(['detainees', 'iph_cards'])->find($folio_uuid);
 
         return response()->json([
             'folioData' => $folio

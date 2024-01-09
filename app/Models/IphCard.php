@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Traits\Uuid;
-use App\Http\Controllers\FolioController;
+use App\Http\Controllers\SeizedItemController;
 
 class IphCard extends Model
 {
@@ -37,7 +37,7 @@ class IphCard extends Model
         'police_plate',
         'police_zone',
         'police_company',
-        'police_drive_number',
+        'police_unit_number',
         'police_name',
         'police_job',
         'police_group',
@@ -58,6 +58,6 @@ class IphCard extends Model
 
     public function folio()
     {
-        return $this->belongsTo(Folio::class, 'folio_uuid');
+        return $this->belongsTo(SeizedItem::class, 'folio_uuid');
     }
 }
