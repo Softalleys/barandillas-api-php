@@ -15,13 +15,13 @@ return new class extends Migration
     {
         Schema::create('seized_items', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('folio')->unique();
+            $table->string('folio', 191)->unique();
             $table->date('date')->default(now());
-            $table->string('detainee_full_name')->default('detainee_full_name');
-            $table->string('receptor_staff_name')->default('receptor_staff_name');
-            $table->string('receptor_manager_name')->default('receptor_manager_name');
-            $table->JSON('personal_belongings')->default('personal_belongings');
-            $table->string('observations')->default('observations');
+            $table->string('detainee_full_name');
+            $table->string('receptor_staff_name');
+            $table->string('receptor_manager_name');
+            $table->string('personal_belongings');
+            $table->string('observations');
             $table->timestamps();
         });
     }

@@ -31,8 +31,7 @@ return new class extends Migration
             $table->string('physical_exploration');
             $table->double('alcohosensor', 4, 2);
             $table->string('diagnosis_description');
-            $table->string('drugs_type');
-            $table->double('drugs_quantity',4,2);
+            $table->JSON('drugs_type');
             $table->Integer('doctor_number');
             $table->Integer('doctor_plate');
             $table->string('doctor_fullname');
