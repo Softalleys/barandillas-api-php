@@ -30,10 +30,14 @@ class MedicalRecord extends Model
         'alcohosensor',
         'diagnosis_description',
         'drugs_type',
-        'drugs_quantity',
         'doctor_number',
         'doctor_plate',
         'doctor_fullname'
+    ];
+
+    protected $casts = [
+        'diagnosis_description' => 'array',
+        'drugs_type' => 'array'
     ];
     
     public function folio()

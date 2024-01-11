@@ -52,7 +52,6 @@ class MedicalRecordController extends Controller
             'alcohosensor' => 'required|string|max:225',
             'diagnosis_description' => 'required|array|max:225',
             'drugs_type' => 'required|array|max:225',
-            'drugs_quantity' => 'required|string|max:225',
             'doctor_number' => 'required|string|max:225',
             'doctor_plate' => 'required|string|max:225',
             'doctor_fullname' => 'required|string|max:225',
@@ -85,7 +84,6 @@ class MedicalRecordController extends Controller
             $medicalRecord->alcohosensor = $request->alcohosensor;
             $medicalRecord->diagnosis_description = json_encode($request->diagnosis_description);
             $medicalRecord->drugs_type = json_encode($request->drugs_type);
-            $medicalRecord->drugs_quantity = $request->drugs_quantity;
             $medicalRecord->doctor_number = $request->doctor_number;
             $medicalRecord->doctor_plate = $request->doctor_plate;
             $medicalRecord->doctor_fullname = $request->doctor_fullname;
