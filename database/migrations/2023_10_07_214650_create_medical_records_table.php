@@ -30,8 +30,8 @@ return new class extends Migration
             $table->string('detainee_gang');
             $table->string('physical_exploration');
             $table->double('alcohosensor', 4, 2);
-            $table->string('diagnosis_description');
-            $table->JSON('drugs_type');
+            $table->json('diagnosis_description');
+            $table->json('drugs_type');
             $table->Integer('doctor_number');
             $table->Integer('doctor_plate');
             $table->string('doctor_fullname');

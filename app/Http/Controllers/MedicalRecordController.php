@@ -82,8 +82,8 @@ class MedicalRecordController extends Controller
             $medicalRecord->detainee_gang = $request->detainee_gang;
             $medicalRecord->physical_exploration = $request->physical_exploration;
             $medicalRecord->alcohosensor = $request->alcohosensor;
-            $medicalRecord->diagnosis_description = json_encode($request->diagnosis_description);
-            $medicalRecord->drugs_type = json_encode($request->drugs_type);
+            $medicalRecord->diagnosis_description = $request->diagnosis_description;
+            $medicalRecord->drugs_type = $request->drugs_type;
             $medicalRecord->doctor_number = $request->doctor_number;
             $medicalRecord->doctor_plate = $request->doctor_plate;
             $medicalRecord->doctor_fullname = $request->doctor_fullname;
