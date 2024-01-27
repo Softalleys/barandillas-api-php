@@ -21,10 +21,6 @@ class IphCardController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'date' => 'required|date|max:225',
-            'time' => 'required|string|max:225',
-            'detention_time' => 'required|string|max:255',
-            'detention_zone' => 'required|string|max:255',
             'capturist_info_number' => 'required|string|max:255',
             'capturist_info_fullname' => 'required|string|max:255',
             'fault' => 'required|string|max:255',
@@ -72,10 +68,6 @@ class IphCardController extends Controller
 
             $iphCard = new IphCard;
             $iphCard->folio_uuid = $request->folio_uuid;
-            $iphCard->date = $request->date;
-            $iphCard->time = $request->time;
-            $iphCard->detention_time = $request->detention_time;
-            $iphCard->detention_zone = $request->detention_zone;
             $iphCard->capturist_info_number = $request->capturist_info_number;
             $iphCard->capturist_info_fullname = $request->capturist_info_fullname;
             $iphCard->fault = $request->fault;

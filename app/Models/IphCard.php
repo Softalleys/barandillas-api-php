@@ -14,10 +14,6 @@ class IphCard extends Model
     
     protected $fillable = [
         'folio_uuid',
-        'date',
-        'time',
-        'detention_time',
-        'detention_zone',
         'capturist_info_number',
         'capturist_info_fullname',
         'fault',

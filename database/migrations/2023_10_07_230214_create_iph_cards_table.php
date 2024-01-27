@@ -16,10 +16,6 @@ return new class extends Migration
         Schema::create('iph_cards', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->uuid('folio_uuid');
-            $table->date('date');
-            $table->time('time');
-            $table->time('detention_time');
-            $table->string('detention_zone');
             $table->Integer('capturist_info_number');
             $table->string('capturist_info_fullname');
             $table->string('fault');
