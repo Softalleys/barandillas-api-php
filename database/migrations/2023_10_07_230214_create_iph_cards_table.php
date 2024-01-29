@@ -18,7 +18,7 @@ return new class extends Migration
             $table->uuid('folio_uuid');
             $table->Integer('capturist_info_number');
             $table->string('capturist_info_fullname');
-            $table->string('fault');
+            $table->string('detention_time');
             $table->string('detainee_firstname');
             $table->string('detainee_lastname1');
             $table->string('detainee_lastname2');

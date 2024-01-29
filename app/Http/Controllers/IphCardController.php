@@ -23,7 +23,7 @@ class IphCardController extends Controller
         $validator = Validator::make($request->all(), [
             'capturist_info_number' => 'required|string|max:255',
             'capturist_info_fullname' => 'required|string|max:255',
-            'fault' => 'required|string|max:255',
+            'detention_time' => 'required|string|max:255',
             'detainee_firstname' => 'required|string|max:255',
             'detainee_lastname1' => 'required|string|max:255',
             'detainee_lastname2' => 'required|string|max:255',
@@ -70,7 +70,7 @@ class IphCardController extends Controller
             $iphCard->folio_uuid = $request->folio_uuid;
             $iphCard->capturist_info_number = $request->capturist_info_number;
             $iphCard->capturist_info_fullname = $request->capturist_info_fullname;
-            $iphCard->fault = $request->fault;
+            $iphCard->detention_time = $request->detention_time;
             $iphCard->detainee_firstname = $request->detainee_firstname;
             $iphCard->detainee_lastname1 = $request->detainee_lastname1;
             $iphCard->detainee_lastname2 = $request->detainee_lastname2;
