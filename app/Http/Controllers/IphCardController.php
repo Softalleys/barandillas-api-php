@@ -21,21 +21,12 @@ class IphCardController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'capturist_info_number' => 'required|string|max:255',
-            'capturist_info_fullname' => 'required|string|max:255',
-            'detention_time' => 'required|string|max:255',
-            'detainee_firstname' => 'required|string|max:255',
-            'detainee_lastname1' => 'required|string|max:255',
-            'detainee_lastname2' => 'required|string|max:255',
-            'detainee_nickname' => 'required|string|max:255',
-            'detainee_birthdate' => 'required|date|max:255',
-            'detainee_age' => 'required|string|max:255',
-            'detainee_sex' => 'required|string|max:255',
-            'detainee_gang' => 'required|string|max:255',
+            'detention_datetime' => 'required|string|max:255',
             'detainee_detention_street' => 'required|string|max:255',
             'detainee_detention_street2' => 'required|string|max:255',
             'detainee_detention_neighborhood' => 'required|string|max:255',
             'detainee_detention_city' => 'required|string|max:255',
+            'has_witness' => 'required|string|max:255',
             'police_number' => 'required|string|max:255',
             'police_plate' => 'required|string|max:255',
             'police_zone' => 'required|string|max:255',
@@ -57,6 +48,8 @@ class IphCardController extends Controller
             'detainee_hair_type' => 'required|string|max:255',
             'detainee_signs' => 'required|string|max:255',
             'detainee_particular_signs' => 'required|string|max:255',
+            'capturist_info_number' => 'required|string|max:255',
+            'capturist_info_fullname' => 'required|string|max:255',
         ]);
 
         if($validator->fails()){
@@ -68,21 +61,12 @@ class IphCardController extends Controller
 
             $iphCard = new IphCard;
             $iphCard->folio_uuid = $request->folio_uuid;
-            $iphCard->capturist_info_number = $request->capturist_info_number;
-            $iphCard->capturist_info_fullname = $request->capturist_info_fullname;
-            $iphCard->detention_time = $request->detention_time;
-            $iphCard->detainee_firstname = $request->detainee_firstname;
-            $iphCard->detainee_lastname1 = $request->detainee_lastname1;
-            $iphCard->detainee_lastname2 = $request->detainee_lastname2;
-            $iphCard->detainee_nickname = $request->detainee_nickname;
-            $iphCard->detainee_birthdate = $request->detainee_birthdate;
-            $iphCard->detainee_age = $request->detainee_age;
-            $iphCard->detainee_sex = $request->detainee_sex;
-            $iphCard->detainee_gang = $request->detainee_gang;
+            $iphCard->detention_datetime = $request->detention_datetime;
             $iphCard->detainee_detention_street = $request->detainee_detention_street;
             $iphCard->detainee_detention_street2 = $request->detainee_detention_street2;
             $iphCard->detainee_detention_neighborhood = $request->detainee_detention_neighborhood;
             $iphCard->detainee_detention_city = $request->detainee_detention_city;
+            $iphCard->has_witness = $request->has_witness;
             $iphCard->police_number = $request->police_number;
             $iphCard->police_plate = $request->police_plate;
             $iphCard->police_zone = $request->police_zone;
@@ -104,6 +88,8 @@ class IphCardController extends Controller
             $iphCard->detainee_hair_type = $request->detainee_hair_type;
             $iphCard->detainee_signs = $request->detainee_signs;
             $iphCard->detainee_particular_signs = $request->detainee_particular_signs;
+            $iphCard->capturist_info_number = $request->capturist_info_number;
+            $iphCard->capturist_info_fullname = $request->capturist_info_fullname;
 
             $iphCard->save();
 

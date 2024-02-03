@@ -55,12 +55,12 @@ class SearchController extends Controller
         return $folios;
     }
 
-    public function searchFolios(Request $request)
-    {
-        $folio = $request->input('folio');
-        $folios = SeizedItem::where('folio', $folio)->get();
-        return $folios;
-    }
+    // public function searchFolios(Request $request)
+    // {
+    //     $folio = $request->input('folio');
+    //     $folios = SeizedItem::where('folio', $folio)->get();
+    //     return $folios;
+    // }
 
     public function searchName($name)
     {

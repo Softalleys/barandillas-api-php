@@ -16,23 +16,20 @@ return new class extends Migration
         Schema::create('detainees', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->uuid('folio_uuid');
-            $table->string('reff_authority_name');
-            $table->string('fault');
-            $table->string('felony');
             $table->string('admission_date');
             $table->string('detention_time');
             $table->date('releasing_date');
             $table->time('releasing_time');
             $table->string('arrest_cause');
-            $table->string('has_witness');
-            $table->string('week_number');
             $table->string('detainee_firstname');
             $table->string('detainee_lastname1');
             $table->string('detainee_lastname2');
             $table->string('detainee_nickname');
+            $table->string('detainee_gang');
             $table->string('detainee_occupation');
             $table->string('detainee_sex');
             $table->Integer('detainee_age');
+            $table->date('detainee_birthdate');
             $table->string('detainee_marital_state');
             $table->string('detainee_scholarship');
             $table->string('detainee_country');

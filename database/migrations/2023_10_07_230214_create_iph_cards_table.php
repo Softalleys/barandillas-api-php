@@ -16,21 +16,12 @@ return new class extends Migration
         Schema::create('iph_cards', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->uuid('folio_uuid');
-            $table->Integer('capturist_info_number');
-            $table->string('capturist_info_fullname');
-            $table->string('detention_time');
-            $table->string('detainee_firstname');
-            $table->string('detainee_lastname1');
-            $table->string('detainee_lastname2');
-            $table->string('detainee_nickname');
-            $table->date('detainee_birthdate');
-            $table->tinyInteger('detainee_age');
-            $table->string('detainee_sex');
-            $table->string('detainee_gang');
+            $table->datetime('detention_datetime');
             $table->string('detainee_detention_street');
             $table->string('detainee_detention_street2');
             $table->string('detainee_detention_neighborhood');
             $table->string('detainee_detention_city');
+            $table->string('has_witness');
             $table->Integer('police_number');
             $table->Integer('police_plate');
             $table->string('police_zone');
@@ -52,6 +43,8 @@ return new class extends Migration
             $table->string('detainee_hair_type');
             $table->string('detainee_signs');
             $table->string('detainee_particular_signs');
+            $table->Integer('capturist_info_number');
+            $table->string('capturist_info_fullname');
             $table->timestamps();
         });
     }
