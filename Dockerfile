@@ -17,13 +17,10 @@ ENV WEB_DOCUMENT_ROOT /app/public
 ENV APP_ENV production
 WORKDIR /app
 
-COPY composer.json composer.json
-COPY composer.lock composer.lock
-
-RUN composer install --no-interaction --optimize-autoloader --no-ansi --no-plugins --no-progress --no-scripts --no-suggest
-
 COPY .docker/nginx/app.conf /opt/docker/etc/nginx/conf.d/app.conf
 
 COPY . .
+
+RUN composer install --no-interaction --optimize-autoloader --no-ansi --no-plugins --no-progress --no-scripts --no-suggest
 
 RUN chown -R application:application .
