@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Detainee;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use App\Http\Controller\SeizedControllerController;
+use App\Http\Controller\FolioController;
 
 class DetaineeController extends Controller
 {

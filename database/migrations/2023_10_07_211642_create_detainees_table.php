@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('detainees', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->uuid('folio_uuid');
             $table->string('admission_date');
             $table->string('detention_time');
             $table->date('releasing_date');

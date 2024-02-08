@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Traits\Uuid;
-use App\Http\Controllers\SeizedItemController;
+use App\Http\Controllers\FolioController;
 
 class JudgeRuling extends Model
 {
@@ -31,7 +31,7 @@ class JudgeRuling extends Model
 
     public function folio()
     {
-        return $this->belongsTo(SeizedItem::class, 'folio_uuid');
+        return $this->belongsTo(Folio::class, 'folio_uuid');
     }
     
 }

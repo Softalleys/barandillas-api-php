@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\SeizedItem;
+use App\Models\Folio;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
-class SeizedItemController extends Controller
+class FolioController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +17,7 @@ class SeizedItemController extends Controller
      */
     public function index()
     {
-        $folios = SeizedItem::all();
+        $folios = Folio::all();
 
         return response()->json([
             'folios' => $folios,
@@ -26,7 +26,7 @@ class SeizedItemController extends Controller
     
     public function getFolioData($id)
     {
-        $folio = SeizedItem::find($id);
+        $folio = Folio::find($id);
         if ($folio) {
             return response()->json([
                 'folio' => $folio,
@@ -59,12 +59,12 @@ class SeizedItemController extends Controller
 
         }else{
 
-            $lastFolio = SeizedItem::orderBy('created_at', 'desc')->first();
+            $lastFolio = Folio::orderBy('created_at', 'desc')->first();
             $lastFolioNumber = $lastFolio ? $lastFolio->folio : 0;
 
             $newFolioNumber = str_pad(intval($lastFolioNumber) + 1 ,6, '0', STR_PAD_LEFT);
 
-            $folio = new SeizedItem;
+            $folio = new Folio;
             $folio->folio = $newFolioNumber;
             $folio->date = $request->date;
             $folio->detainee_full_name = $request->detainee_full_name;

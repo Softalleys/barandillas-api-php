@@ -13,8 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('seized_items', function (Blueprint $table) {
+        Schema::create('folios', function (Blueprint $table) {
             $table->uuid('id')->primary();
+            $table->uuid('detainees_uuid');
             $table->string('folio', 191)->unique();
             $table->date('date')->default(now());
             $table->string('detainee_full_name');
@@ -33,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('seized_items');
+        Schema::dropIfExists('folios');
     }
 };

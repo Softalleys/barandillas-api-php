@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\MedicalRecord;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use App\Http\Controller\SeizedItemController;
+use App\Http\Controller\FolioController;
 
 class MedicalRecordController extends Controller
 {

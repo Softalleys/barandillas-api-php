@@ -9,7 +9,7 @@ use App\Models\MedicalRecord;
 use App\Models\IphCard;
 use App\Models\JudgeRuling;
 
-class SeizedItem extends Model
+class Folio extends Model
 {
     use HasFactory;
     use Uuid;
