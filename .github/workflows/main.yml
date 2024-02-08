@@ -1,0 +1,29 @@
+name: CI/CD 🚀
+
+on:
+  workflow_dispatch:
+
+jobs:
+  docker-build:
+    name: Build Docker image 🐳
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v2
+      - run: echo "${{ secrets.DOCKER_HUB_PASS }}" | docker login -u "${{ secrets.DOCKER_HUB_USER }}" --password-stdin
+      - run: docker build  -t serveix/barandillas-api-php:release-${{ github.run_number }} -t serveix/barandillas-api-php:latest .
+      - run: docker push serveix/barandillas-api-php:release-${{ github.run_number }}
+      - run: docker push serveix/barandillas-api-php:latest
+
+  deploy:
+    name: Deploy to production 🚀
+    runs-on: ubuntu-22.04
+    needs: docker-build
+    steps:
+      - name: Run SSH commands
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          script: /bin/bash /webservices/deploy-update.sh barandillas-api-php release-${{ github.run_number }}
