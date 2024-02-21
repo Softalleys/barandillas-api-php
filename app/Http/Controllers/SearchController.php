@@ -17,7 +17,8 @@ class SearchController extends Controller
           }
           
           if ($request->get('name')) {
-            return Detainee::where('name', 'LIKE', '%' . $request->get('folio') . '%')->paginate();
+            // return Detainee::where('name', 'LIKE', '%' . $request->get('name') . '%')->paginate();
+            return Detainee::whereRaw("CONCAT(detainee_firstname, ' ', detainee_lastname1) LIKE ?", ['%' . $request->get('name') . '%'])->paginate();
           }
     }
 }
